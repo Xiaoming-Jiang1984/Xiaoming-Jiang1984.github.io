@@ -7,7 +7,7 @@
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
         body{
-            font-family:"Helvetica Neue",Arial,"SimSun",serif;
+            font-family:"Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
             background:#fff;
             color:#222;
             line-height:1.7;
@@ -48,6 +48,7 @@
             height:200px;
             object-fit:cover;
             border:1px solid #ccc;
+            background:#f0f0f0;
         }
         .name-title h1{
             font-size:28px;
@@ -97,14 +98,28 @@
             border-radius:3px;
         }
 
+        /* 优化论文列表样式 */
         .paper-list{margin-top:12px;}
         .paper-item{
-            margin-bottom:16px;
+            margin-bottom:20px;
             padding-left:12px;
             border-left:3px solid #60a5fa;
         }
-        .paper-title{font-weight:bold;color:#111;}
-        .paper-journal{font-size:14px;color:#555;}
+        .paper-authors{
+            font-size:15px;
+            color:#333;
+            line-height:1.6;
+        }
+        .paper-title{
+            font-size:16px;
+            font-weight:bold;
+            color:#111;
+            margin:4px 0;
+        }
+        .paper-source{
+            font-size:14px;
+            color:#555;
+        }
 
         .edu-item, .project-item{
             margin-bottom:12px;
@@ -215,56 +230,69 @@
         <h2>代表性论著（按时间/期刊分区排序）</h2>
         <div class="paper-list">
             <div class="paper-item">
-                <div class="paper-title">Jiang, <strong>Xiaoming</strong>, Guoying Ji, Ye Yan, Xiongjun Ye, Chao Liang, Bao Li, Wei Wang, Shudong Zhang, and Lizhi Shao. Context-aware heterogeneous graph neural network for multi-level description and invasiveness prediction in renal cell carcinoma.</div>
-                <div class="paper-journal">Artificial Intelligence in Medicine, 2025, 中科院二区TOP</div>
+                <div class="paper-authors">Jiang, <strong>Xiaoming</strong>, Guoying Ji, Ye Yan, Xiongjun Ye, Chao Liang, Bao Li, Wei Wang, Shudong Zhang, and Lizhi Shao.</div>
+                <div class="paper-title">Context-aware heterogeneous graph neural network for multi-level description and invasiveness prediction in renal cell carcinoma.</div>
+                <div class="paper-source">Artificial Intelligence in Medicine, 2025, 中科院二区TOP</div>
             </div>
             <div class="paper-item">
-                <div class="paper-title">Ji, Guoying, Lizhi Shao, Yihao Zhu, Xuwen Li, Tianwang Xun, Junxian Wu, Yabo Zhai, Yuan Yuan, <strong>Xiaoming Jiang</strong>, and Xiongjun Ye. Dual-domain contrastive learning for three-dimensional multi-parametric magnetic resonance imaging to end-to-end predict kidney cancer subtypes.</div>
-                <div class="paper-journal">Engineering Applications of Artificial Intelligence, 2025, 中科院一区TOP</div>
+                <div class="paper-authors">Ji, Guoying, Lizhi Shao, Yihao Zhu, Xuwen Li, Tianwang Xun, Junxian Wu, Yabo Zhai, Yuan Yuan, <strong>Xiaoming Jiang</strong>, and Xiongjun Ye.</div>
+                <div class="paper-title">Dual-domain contrastive learning for three-dimensional multi-parametric magnetic resonance imaging to end-to-end predict kidney cancer subtypes.</div>
+                <div class="paper-source">Engineering Applications of Artificial Intelligence, 2025, 中科院一区TOP</div>
             </div>
             <div class="paper-item">
-                <div class="paper-title">Shao, Lizhi, Chao Liang, Ye Yan, Haibin Zhu, <strong>Xiaoming Jiang</strong>, Meiling Bao, Pan Zang et al. An MRI–pathology foundation model for noninvasive diagnosis and grading of prostate cancer.</div>
-                <div class="paper-journal">Nature Cancer, 2025, 中科院一区TOP（Nature子刊）</div>
+                <div class="paper-authors">Shao, Lizhi, Chao Liang, Ye Yan, Haibin Zhu, <strong>Xiaoming Jiang</strong>, Meiling Bao, Pan Zang et al.</div>
+                <div class="paper-title">An MRI–pathology foundation model for noninvasive diagnosis and grading of prostate cancer.</div>
+                <div class="paper-source">Nature Cancer, 2025, 中科院一区TOP（Nature子刊）</div>
             </div>
             <div class="paper-item">
-                <div class="paper-title">Wu, Jia, Jinzhao Lin, <strong>Xiaoming Jiang</strong>, Wei Zheng, Lisha Zhong, Yu Pang, Hongying Meng, and Zhangyong Li. Dual-Domain deep prior guided sparse-view CT reconstruction with multi-scale fusion attention.</div>
-                <div class="paper-journal">Scientific Reports, 2025, 中科院三区</div>
+                <div class="paper-authors">Wu, Jia, Jinzhao Lin, <strong>Xiaoming Jiang</strong>, Wei Zheng, Lisha Zhong, Yu Pang, Hongying Meng, and Zhangyong Li.</div>
+                <div class="paper-title">Dual-Domain deep prior guided sparse-view CT reconstruction with multi-scale fusion attention.</div>
+                <div class="paper-source">Scientific Reports, 2025, 中科院三区</div>
             </div>
             <div class="paper-item">
-                <div class="paper-title">Wu, Jia, Jinzhao Lin, Yu Pang, <strong>Xiaoming Jiang</strong>, Xinwei Li, Hongying Meng, Yamei Luo, Lu Yang, and Zhangyong Li. Cascaded frequency-encoded multi-scale neural fields for sparse-view CT reconstruction.</div>
-                <div class="paper-journal">IEEE Transactions on Computational Imaging, 2025, 中科院二区</div>
+                <div class="paper-authors">Wu, Jia, Jinzhao Lin, Yu Pang, <strong>Xiaoming Jiang</strong>, Xinwei Li, Hongying Meng, Yamei Luo, Lu Yang, and Zhangyong Li.</div>
+                <div class="paper-title">Cascaded frequency-encoded multi-scale neural fields for sparse-view CT reconstruction.</div>
+                <div class="paper-source">IEEE Transactions on Computational Imaging, 2025, 中科院二区</div>
             </div>
             <div class="paper-item">
-                <div class="paper-title">Wu, Junxian, Minheng Chen, Xinyi Ke, Tianwang Xun, <strong>Xiaoming Jiang</strong>, Hongyu Zhou, Lizhi Shao, and Youyong Kong. Learning heterogeneous tissues with mixture of experts for gigapixel whole slide images.</div>
-                <div class="paper-journal">CVPR 2025, CCF A类顶会</div>
+                <div class="paper-authors">Wu, Junxian, Minheng Chen, Xinyi Ke, Tianwang Xun, <strong>Xiaoming Jiang</strong>, Hongyu Zhou, Lizhi Shao, and Youyong Kong.</div>
+                <div class="paper-title">Learning heterogeneous tissues with mixture of experts for gigapixel whole slide images.</div>
+                <div class="paper-source">CVPR 2025, CCF A类顶会</div>
             </div>
             <div class="paper-item">
-                <div class="paper-title">Wu, Junxian, Xinyi Ke, <strong>Xiaoming Jiang</strong>, Huanwen Wu, Youyong Kong, and Lizhi Shao. Leveraging tumor heterogeneity: Heterogeneous graph representation learning for cancer survival prediction in whole slide images.</div>
-                <div class="paper-journal">NeurIPS 2024, CCF A类顶会</div>
+                <div class="paper-authors">Wu, Junxian, Xinyi Ke, <strong>Xiaoming Jiang</strong>, Huanwen Wu, Youyong Kong, and Lizhi Shao.</div>
+                <div class="paper-title">Leveraging tumor heterogeneity: Heterogeneous graph representation learning for cancer survival prediction in whole slide images.</div>
+                <div class="paper-source">NeurIPS 2024, CCF A类顶会</div>
             </div>
             <div class="paper-item">
-                <div class="paper-title">He, Tao, <strong>Xiaoming Jiang</strong>, Jia Wu, Wanyun Wang, Han Zhang, and Zhangyong Li. Dual-Domain Image Reconstruction Network Integrating Residual Attention for Sparse View Computed Tomography.</div>
-                <div class="paper-journal">IEEE MedAI 2024, 国际会议</div>
+                <div class="paper-authors">He, Tao, <strong>Xiaoming Jiang</strong>, Jia Wu, Wanyun Wang, Han Zhang, and Zhangyong Li.</div>
+                <div class="paper-title">Dual-Domain Image Reconstruction Network Integrating Residual Attention for Sparse View Computed Tomography.</div>
+                <div class="paper-source">IEEE MedAI 2024, 国际会议</div>
             </div>
             <div class="paper-item">
-                <div class="paper-title">Huang, Longjian, Lizhi Shao, Meiling Bao, Changsong Guo, Zhuhong Shao, Xiazi Huang, Mingjing Wang, <strong>Xiaoming Jiang</strong>, and Shengzhou Hu. Federated learning with comparative learning-based dynamic parameter updating on glioma whole slide images.</div>
-                <div class="paper-journal">Engineering Applications of Artificial Intelligence, 2024, 中科院一区TOP</div>
+                <div class="paper-authors">Huang, Longjian, Lizhi Shao, Meiling Bao, Changsong Guo, Zhuhong Shao, Xiazi Huang, Mingjing Wang, <strong>Xiaoming Jiang</strong>, and Shengzhou Hu.</div>
+                <div class="paper-title">Federated learning with comparative learning-based dynamic parameter updating on glioma whole slide images.</div>
+                <div class="paper-source">Engineering Applications of Artificial Intelligence, 2024, 中科院一区TOP</div>
             </div>
             <div class="paper-item">
-                <div class="paper-title">Jiang, <strong>Xiaoming</strong>, Yongxin Yang, Tong Su, Kai Xiao, LiDan Lu, Wei Wang, Changsong Guo, Lizhi Shao, Mingjing Wang, and Dong Jiang. Unsupervised domain adaptation based on feature and edge alignment for femur X-ray image segmentation.</div>
-                <div class="paper-journal">Computerized Medical Imaging and Graphics, 2024, 中科院二区</div>
+                <div class="paper-authors">Jiang, <strong>Xiaoming</strong>, Yongxin Yang, Tong Su, Kai Xiao, LiDan Lu, Wei Wang, Changsong Guo, Lizhi Shao, Mingjing Wang, and Dong Jiang.</div>
+                <div class="paper-title">Unsupervised domain adaptation based on feature and edge alignment for femur X-ray image segmentation.</div>
+                <div class="paper-source">Computerized Medical Imaging and Graphics, 2024, 中科院二区</div>
             </div>
             <div class="paper-item">
-                <div class="paper-title">Wu, Jia, <strong>Xiaoming Jiang</strong>, Lisha Zhong, Wei Zheng, Xinwei Li, Jinzhao Lin, and Zhangyong Li. Linear diffusion noise boosted deep image prior for unsupervised sparse-view CT reconstruction.</div>
-                <div class="paper-journal">Physics in Medicine & Biology, 2024, 中科院二区</div>
+                <div class="paper-authors">Wu, Jia, <strong>Xiaoming Jiang</strong>, Lisha Zhong, Wei Zheng, Xinwei Li, Jinzhao Lin, and Zhangyong Li.</div>
+                <div class="paper-title">Linear diffusion noise boosted deep image prior for unsupervised sparse-view CT reconstruction.</div>
+                <div class="paper-source">Physics in Medicine & Biology, 2024, 中科院二区</div>
             </div>
             <div class="paper-item">
-                <div class="paper-title">Yang, Yongxin, Wei Wang, and <strong>Xiaoming Jiang</strong>. Global contextual enhanced attention-guided domain adaptation for dual-energy x-ray image segmentation of ulna and radius.</div>
-                <div class="paper-journal">SPIE ISPP 2024, 国际会议</div>
+                <div class="paper-authors">Yang, Yongxin, Wei Wang, and <strong>Xiaoming Jiang</strong>.</div>
+                <div class="paper-title">Global contextual enhanced attention-guided domain adaptation for dual-energy x-ray image segmentation of ulna and radius.</div>
+                <div class="paper-source">SPIE ISPP 2024, 国际会议</div>
             </div>
             <div class="paper-item">
-                <div class="paper-title">Ran, Kaihuai, Yongxin Yang, Ye Yan, and <strong>Xiaoming Jiang</strong>. Automated diagnosis of renal sinus invasion in renal cell carcinoma with contrastive learning and proxy task.</div>
-                <div class="paper-journal">SPIE ISPP 2024, 国际会议</div>
+                <div class="paper-authors">Ran, Kaihuai, Yongxin Yang, Ye Yan, and <strong>Xiaoming Jiang</strong>.</div>
+                <div class="paper-title">Automated diagnosis of renal sinus invasion in renal cell carcinoma with contrastive learning and proxy task.</div>
+                <div class="paper-source">SPIE ISPP 2024, 国际会议</div>
             </div>
         </div>
     </section>
