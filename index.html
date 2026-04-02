@@ -34,7 +34,8 @@
             max-height: 600px;
             overflow-y: auto;
             position: sticky;
-            top: 40px; /* 跟随页面滚动，但保持固定位置 */
+            top: 40px;
+            margin-left: -130px; /* 👈 就是这一行：向左移动30px */
         }
         .news-sidebar h2 {
             font-size: 18px;
@@ -57,7 +58,7 @@
             margin-bottom: 2px;
         }
 
-        /* ========== 右侧：主体内容（完全保持你原来的结构） ========== */
+        /* ========== 右侧：主体内容 ========== */
         .main-content {
             flex: 1;
         }
@@ -166,7 +167,6 @@
             margin-top:30px;
         }
 
-        /* 移动端适配：收起侧边栏 */
         @media(max-width:900px){
             .page-layout {
                 flex-direction: column;
@@ -175,6 +175,7 @@
                 width: 100%;
                 max-height: 300px;
                 position: static;
+                margin-left: 0;
             }
             .header-wrap{grid-template-columns:1fr;text-align:center;}
             .avatar{margin:0 auto;}
@@ -201,7 +202,6 @@
 </nav>
 
 <div class="page-layout">
-    <!-- 左侧：和截图完全一致的「近期进展」可滚动卡片 -->
     <div class="news-sidebar">
         <h2>📢 近期进展</h2>
         <div class="news-item">
@@ -227,7 +227,6 @@
         </div>
     </div>
 
-    <!-- 右侧：你原来的全部主体内容，完全没有改动 -->
     <div class="main-content">
         <div class="header-wrap">
             <img class="avatar" src="avatar.jpg" alt="姜小明">
