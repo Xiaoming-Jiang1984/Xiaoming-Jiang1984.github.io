@@ -11,10 +11,56 @@
             background:#fff;
             color:#222;
             line-height:1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ========== 左侧固定可滚动侧边栏：近期进展 ========== */
+        .sidebar {
+            width: 260px;
+            background: #f9fafb;
+            border-right: 1px solid #e5e7eb;
+            padding: 25px 20px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto; /* 可滚动 */
+        }
+        .sidebar h2 {
+            font-size: 18px;
+            color: #1f2937;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #60a5fa;
+        }
+        .news-item {
+            font-size: 14px;
+            padding: 8px 0 8px 10px;
+            border-left: 3px solid #60a5fa;
+            margin-bottom: 8px;
+            background: #fff;
+            border-radius: 4px;
+            padding-right: 8px;
+        }
+        .news-date {
+            font-weight: bold;
+            color: #1f2937;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* ========== 右侧主体内容 ========== */
+        .wrapper {
+            margin-left: 260px; /* 避开左侧栏 */
+            flex: 1;
         }
         nav{
             background:#1f2937;
             padding:16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
         .nav-container{
             max-width:1000px;
@@ -76,15 +122,7 @@
             border-bottom:1px solid #999;
         }
 
-        /* 研究方向 + 近期进展 并排布局（右侧已增大） */
-        .top-row{
-            display:grid;
-            grid-template-columns: 55% 45%;
-            gap: 25px;
-            margin-bottom: 45px;
-        }
-
-        section{margin-bottom:0;}
+        section{margin-bottom:45px;}
         h2{
             font-size:20px;
             color:#1f2937;
@@ -107,53 +145,15 @@
             border-radius:3px;
         }
 
-        /* 右侧近期进展 增大框样式 */
-        .news-box{
-            background:#f9fafb;
-            border:1px solid #e5e7eb;
-            border-radius:6px;
-            padding:20px;
-            height:fit-content;
-        }
-        .news-box h2{
-            font-size:19px;
-            border-bottom:2px solid #60a5fa;
-            margin-bottom:14px;
-        }
-        .news-item{
-            font-size:14px;
-            padding-left:10px;
-            border-left:3px solid #60a5fa;
-            margin-bottom:10px;
-        }
-        .news-date{
-            font-weight:bold;
-            color:#1f2937;
-            margin-right:6px;
-        }
-
-        /* 论文列表 */
         .paper-list{margin-top:12px;}
         .paper-item{
             margin-bottom:20px;
             padding-left:12px;
             border-left:3px solid #60a5fa;
         }
-        .paper-authors{
-            font-size:15px;
-            color:#333;
-            line-height:1.6;
-        }
-        .paper-title{
-            font-size:16px;
-            font-weight:bold;
-            color:#111;
-            margin:4px 0;
-        }
-        .paper-source{
-            font-size:14px;
-            color:#555;
-        }
+        .paper-authors{font-size:15px;color:#333;line-height:1.6;}
+        .paper-title{font-size:16px;font-weight:bold;color:#111;margin:4px 0;}
+        .paper-source{font-size:14px;color:#555;}
 
         .edu-item, .project-item{
             margin-bottom:12px;
@@ -161,7 +161,6 @@
             border-left:2px solid #ddd;
         }
 
-        /* 页脚统计样式 */
         .footer-stat{
             text-align:center;
             padding:20px 0;
@@ -171,53 +170,63 @@
             margin-top:30px;
         }
 
-        @media(max-width:768px){
-            .top-row{
-                grid-template-columns:1fr;
-                gap:20px;
-            }
-            .header-wrap{
-                grid-template-columns:1fr;
-                text-align:center;
-            }
+        /* 手机端自动隐藏左侧栏 */
+        @media(max-width:992px){
+            .sidebar { display: none; }
+            .wrapper { margin-left: 0; }
+            .header-wrap{grid-template-columns:1fr;text-align:center;}
             .avatar{margin:0 auto;}
         }
     </style>
-    <!-- 不蒜子访问统计脚本 -->
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 
-<nav>
-    <div class="nav-container">
-        <a href="#about">个人简介</a>
-        <a href="#education">教育背景</a>
-        <a href="#work">工作经历</a>
-        <a href="#social">社会职务</a>
-        <a href="#projects">科研项目</a>
-        <a href="#papers">代表论文</a>
-        <a href="#patents">专利与奖励</a>
-        <a href="#students">学生去向</a>
-        <a href="#contact">联系方式</a>
-    </div>
-</nav>
+<!-- ========== 最左侧：可滚动 近期进展 ========== -->
+<div class="sidebar">
+    <h2>📢 近期进展</h2>
+    <div class="news-item"><span class="news-date">2026-04-02</span> 学术主页正式上线</div>
+    <div class="news-item"><span class="news-date">2026-03-15</span> 1篇论文被IEEE TCI期刊接收</div>
+    <div class="news-item"><span class="news-date">2026-02-20</span> 招收2026级硕士/博士研究生</div>
+    <div class="news-item"><span class="news-date">2026-01-10</span> 课题组获重庆市重大项目资助</div>
+    <div class="news-item"><span class="news-date">2025-12-05</span> 团队论文入选CVPR 2025</div>
+    <div class="news-item"><span class="news-date">2025-11-18</span> 受邀参加国际计算成像会议</div>
+    <div class="news-item"><span class="news-date">2025-10-01</span> 国家发明专利授权2项</div>
+</div>
 
-<div class="container">
-    <div class="header-wrap">
-        <img class="avatar" src="avatar.jpg" alt="姜小明">
-        <div class="name-title">
-            <h1>姜小明</h1>
-            <p class="post">副教授、生物医学工程系主任、博士生导师（电子信息）</p>
-            <p class="unit">重庆邮电大学 生命健康信息科学与工程学院</p>
-            <div class="contact-info">
-                <p>📧 Email：jiangxm@cqupt.edu.cn</p>
-                <p>🔗 Google Scholar：<a href="https://scholar.google.com/citations?hl=en&user=4HYZ2ooAAAAJ" target="_blank">点击访问</a></p>
+<!-- ========== 右侧主体页面 ========== -->
+<div class="wrapper">
+    <nav>
+        <div class="nav-container">
+            <a href="#research">研究方向</a>
+            <a href="#about">个人简介</a>
+            <a href="#education">教育背景</a>
+            <a href="#work">工作经历</a>
+            <a href="#social">社会职务</a>
+            <a href="#projects">科研项目</a>
+            <a href="#papers">代表论文</a>
+            <a href="#patents">专利奖励</a>
+            <a href="#students">学生去向</a>
+            <a href="#contact">联系方式</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header-wrap">
+            <img class="avatar" src="avatar.jpg" alt="姜小明">
+            <div class="name-title">
+                <h1>姜小明</h1>
+                <p class="post">副教授、生物医学工程系主任、博士生导师（电子信息）</p>
+                <p class="unit">重庆邮电大学 生命健康信息科学与工程学院</p>
+                <div class="contact-info">
+                    <p>📧 Email：jiangxm@cqupt.edu.cn</p>
+                    <p>📞 电话：18323350628</p>
+                    <p>🔗 Google Scholar：<a href="https://scholar.google.com/citations?hl=en&user=4HYZ2ooAAAAJ" target="_blank">点击访问</a></p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- 研究方向（左） + 近期进展（右，已增大） -->
-    <div class="top-row">
         <section id="research">
             <h2>研究方向</h2>
             <div class="tags">
@@ -228,161 +237,89 @@
             </div>
         </section>
 
-        <div class="news-box">
-            <h2>近期进展</h2>
-            <div class="news-item"><span class="news-date">2026-04-02</span> 学术主页正式上线</div>
-            <div class="news-item"><span class="news-date">2026-03-15</span> 1篇论文被IEEE TCI接收</div>
-            <div class="news-item"><span class="news-date">2026-02-20</span> 招收2026级研究生</div>
-        </div>
+        <section id="about">
+            <h2>个人简介</h2>
+            <p>姜小明，博士，重庆邮电大学生命健康信息科学与工程学院副教授、生物医学工程系主任、博士生导师（电子信息）。2015年于德国海德堡大学获医学物理博士学位，随后在德国乌尔姆大学从事博士后研究。长期致力于医学人工智能、生物医学图像处理与计算成像、手术导航与机器人等交叉领域研究。主持国家自然科学基金青年项目、重庆市技术创新与应用发展重大项目课题及多项企业横向课题，参与国家自然科学基金面上项目。在相关领域发表多篇高水平学术论文，授权/公开国家发明专利十余项，并获得国际计算成像会议优秀海报论文奖。</p>
+        </section>
+
+        <section id="education">
+            <h2>教育背景</h2>
+            <div class="edu-item"><p><strong>博士</strong> (2010.09–2015.01) 德国海德堡大学，医学物理</p></div>
+            <div class="edu-item"><p><strong>硕士</strong> (2007.09–2010.06) 东南大学，生物医学工程</p></div>
+            <div class="edu-item"><p><strong>学士</strong> (2003.08–2007.06) 东南大学，生物医学工程</p></div>
+        </section>
+
+        <section id="work">
+            <h2>工作经历</h2>
+            <div class="edu-item"><p><strong>副教授、系主任</strong> (2021.01–至今) 重庆邮电大学 生命健康信息科学与工程学院 生物医学工程系</p></div>
+            <div class="edu-item"><p><strong>讲师</strong> (2016.06–2020.12) 重庆邮电大学 生命健康信息科学与工程学院 生物医学工程系</p></div>
+            <div class="edu-item"><p><strong>博士后</strong> (2014.09–2015.12) 德国乌尔姆大学</p></div>
+        </section>
+
+        <section id="social">
+            <h2>社会职务与学术服务</h2>
+            <div class="edu-item">
+                <p>重庆市生物医学工程学会、数字医学学会理事</p>
+                <p>重庆市卫生健康信息学会医学大数据与人工智能专业委员会委员</p>
+                <p><strong>期刊审稿人</strong>：IEEE JBHI、IEEE TCI、IEEE TIM、AIIM、Optica OE、Optica OL</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>代表性科研项目</h2>
+            <div class="project-item"><p>1. 主持，重庆市技术创新与应用发展专项（重大项目）课题：面向体腔的智能内窥镜机器人系统研制（CSTB2025TIAD‑STX0010），2025.06–2028.06，50万元，在研</p></div>
+            <div class="project-item"><p>2. 主持，横向课题：基于******的骨科手术动力导航设备研究，2025.06–2026.02，70万元，在研</p></div>
+            <div class="project-item"><p>3. 主持，横向课题：基于******的骨科手术动力导航算法研究，2024.02–2024.12，25万元，已结题</p></div>
+            <div class="project-item"><p>4. 主持，国家自然科学基金青年项目：显微成像相位恢复神经网络方法研究（61801069），2019.01–2021.12，26万元，已结题</p></div>
+            <div class="project-item"><p>5. 参与，国家自然科学基金面上项目：光遗传工程化视网膜前体细胞治疗致盲性眼病的基础及机制研究（32571193），2026.01–2029.12，50万元，在研</p></div>
+        </section>
+
+        <section id="papers">
+            <h2>代表性论著</h2>
+            <div class="paper-list">
+                <div class="paper-item">
+                    <div class="paper-authors"><strong>Xiaoming Jiang</strong>; Guoying Ji; Ye Yan; Xiongjun Ye; Chao Liang; Wei Wang; Shudong Zhang; Lizhi Shao.</div>
+                    <div class="paper-title">Context-aware heterogeneous graph neural network for multi-level description and invasiveness prediction in renal cell carcinoma.</div>
+                    <div class="paper-source">Artificial Intelligence In Medicine, 2026, 中科院二区top</div>
+                </div>
+                <div class="paper-item">
+                    <div class="paper-authors">Guoying Ji; Lizhi Shao; Yihao Zhu; Tianwang Xun; Junxian Wu; Yabo Zhai; Yuan Yuan; Jie lv; <strong>Xiaoming Jiang</strong>; Xiongjun Ye.</div>
+                    <div class="paper-title">Dual-domain contrastive learning for three-dimensional multiparametric magnetic resonance imaging to end-to-end predict kidney cancer subtypes.</div>
+                    <div class="paper-source">Engineering Applications of Artificial Intelligence, 2025, 中科院一区top</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="patents">
+            <h2>专利与学术奖励</h2>
+            <div class="project-item">
+                <p>• 一种基于点云一致性关系强化的点云非刚性配准方法，CN202411627635.4</p>
+                <p>• 一种基于先验信息的肾细胞癌窦性侵犯预测方法，CN202411538601.8</p>
+            </div>
+            <p style="margin-top:15px;"><strong>学术奖励：</strong>国际计算成像会议优秀海报论文奖（2021）</p>
+        </section>
+
+        <section id="students">
+            <h2>学生去向</h2>
+            <div class="edu-item">
+                <p><strong>升学（读博）</strong>：东南大学、郑州大学</p>
+                <p><strong>就业</strong>：京东方、西南医院、航天XX、西山科技、博士康、河南联通等企事业单位</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>学术联系与招生</h2>
+            <p>欢迎报考/加入课题组，研究方向：医学人工智能、手术导航、生物医学图像处理、计算成像。</p>
+            <p>邮箱：jiangxm@cqupt.edu.cn</p>
+            <p>电话：18323350628</p>
+        </section>
     </div>
 
-    <section id="about" style="margin-bottom:45px;">
-        <h2>个人简介</h2>
-        <p>姜小明，博士，重庆邮电大学生命健康信息科学与工程学院副教授、生物医学工程系主任、博士生导师（电子信息）。2015年于德国海德堡大学获医学物理博士学位，随后在德国乌尔姆大学从事博士后研究。长期致力于医学人工智能、生物医学图像处理与计算成像、手术导航与机器人等交叉领域研究。主持国家自然科学基金青年项目、重庆市技术创新与应用发展重大项目课题及多项企业横向课题，参与国家自然科学基金面上项目。在相关领域发表多篇高水平学术论文，授权/公开国家发明专利十余项，并获得国际计算成像会议优秀海报论文奖。</p>
-    </section>
-
-    <section id="education" style="margin-bottom:45px;">
-        <h2>教育背景</h2>
-        <div class="edu-item">
-            <p><strong>博士</strong> (2010.09–2015.01) 德国海德堡大学，医学物理</p>
-        </div>
-        <div class="edu-item">
-            <p><strong>硕士</strong> (2007.09–2010.06) 东南大学，生物医学工程</p>
-        </div>
-        <div class="edu-item">
-            <p><strong>学士</strong> (2003.08–2007.06) 东南大学，生物医学工程</p>
-        </div>
-    </section>
-
-    <section id="work" style="margin-bottom:45px;">
-        <h2>工作经历</h2>
-        <div class="edu-item">
-            <p><strong>副教授、系主任</strong> (2021.01–至今) 重庆邮电大学 生命健康信息科学与工程学院 生物医学工程系</p>
-        </div>
-        <div class="edu-item">
-            <p><strong>讲师</strong> (2016.06–2020.12) 重庆邮电大学 生命健康信息科学与工程学院 生物医学工程系</p>
-        </div>
-        <div class="edu-item">
-            <p><strong>博士后</strong> (2014.09–2015.12) 德国乌尔姆大学</p>
-        </div>
-    </section>
-
-    <section id="social" style="margin-bottom:45px;">
-        <h2>社会职务与学术服务</h2>
-        <div class="edu-item">
-            <p>重庆市生物医学工程学会、数字医学学会理事</p>
-            <p>重庆市卫生健康信息学会医学大数据与人工智能专业委员会委员</p>
-            <p><strong>期刊审稿人</strong>：IEEE JBHI、IEEE TCI、IEEE TIM、AIIM、Optica OE、Optica OL</p>
-        </div>
-    </section>
-
-    <section id="projects" style="margin-bottom:45px;">
-        <h2>代表性科研项目</h2>
-        <div class="project-item">
-            <p>1. 主持，重庆市技术创新与应用发展专项（重大项目）课题：面向体腔的智能内窥镜机器人系统研制（CSTB2025TIAD‑STX0010），2025.06–2028.06，50万元，在研</p>
-        </div>
-        <div class="project-item">
-            <p>2. 主持，横向课题：基于******的骨科手术动力导航设备研究，2025.06–2026.02，70万元，在研</p>
-        </div>
-        <div class="project-item">
-            <p>3. 主持，横向课题：基于******的骨科手术动力导航算法研究，2024.02–2024.12，25万元，已结题</p>
-        </div>
-        <div class="project-item">
-            <p>4. 主持，国家自然科学基金青年项目：显微成像相位恢复神经网络方法研究（61801069），2019.01–2021.12，26万元，已结题</p>
-        </div>
-        <div class="project-item">
-            <p>5. 参与，国家自然科学基金面上项目：光遗传工程化视网膜前体细胞治疗致盲性眼病的基础及机制研究（32571193），2026.01–2029.12，50万元，在研</p>
-        </div>
-    </section>
-
-    <section id="papers" style="margin-bottom:45px;">
-        <h2>代表性论著（按时间/期刊分区排序）</h2>
-        <div class="paper-list">
-            <div class="paper-item">
-                <div class="paper-authors"><strong>Xiaoming Jiang</strong>; Guoying Ji; Ye Yan; Xiongjun Ye; Chao Liang; Wei Wang; Shudong Zhang; Lizhi Shao.</div>
-                <div class="paper-title"><strong>Context-aware heterogeneous graph neural network for multi-level description and invasiveness prediction in renal cell carcinoma.</strong></div>
-                <div class="paper-source">Artificial Intelligence In Medicine, 2026, 172(2026), 中科院二区top</div>
-            </div>
-            <div class="paper-item">
-                <div class="paper-authors">Guoying Ji; Lizhi Shao; Yihao Zhu; Tianwang Xun; Junxian Wu; Yabo Zhai; Yuan Yuan; Jie lv; <strong>Xiaoming Jiang</strong>; Xiongjun Ye.</div>
-                <div class="paper-title"><strong>Dual-domain contrastive learning for three-dimensional multiparametric magnetic resonance imaging to end-to-end predict kidney cancer subtypes.</strong></div>
-                <div class="paper-source">Engineering Applications of Artificial Intelligence, 2025, 159, 中科院一区top</div>
-            </div>
-            <div class="paper-item">
-                <div class="paper-authors"><strong>Xiaoming Jiang</strong>; Yongxin Yang; Tong Su; Kai Xiao; Lidan Lu; Wei Wang; Changsong Guo; Lizhi Shao; Mingjing Wang; Dong Jiang.</div>
-                <div class="paper-title"><strong>Unsupervised domain adaptation based on feature and edge alignment for femur X-ray image segmentation.</strong></div>
-                <div class="paper-source">Computerized Medical Imaging and Graphics, 2024, 116, 中科院二区</div>
-            </div>
-            <div class="paper-item">
-                <div class="paper-authors">Lizhi Shao; Chao Liang; Ye Yan; Haibin Zhu; <strong>Xiaoming Jiang</strong>; Meiling Bao; Pan Zang; Xiazi Huang; Hongyu Zhou; Pei Nie; Liang Wang; Jie Li; Shudong Zhang ; Shancheng Ren.</div>
-                <div class="paper-title"><strong>An MRI – pathology foundation model for noninvasive diagnosis and grading of prostate cancer.</strong></div>
-                <div class="paper-source">Nature Cancer, 2025, 中科院一区top Nature子刊</div>
-            </div>
-            <div class="paper-item">
-                <div class="paper-authors">崔耀建; 袁源; 杨德旺; 张子瑜; 邵立智; 叶雄俊; <strong>姜小明</strong>.</div>
-                <div class="paper-title"><strong>基于多病理基础模型联合和主动学习的全景数字病理切片级分析与预测方法研究</strong></div>
-                <div class="paper-source">中国体视学与图像分析, 2026, 30(40): 419-430, 中文核心，一级学会学报</div>
-            </div>
-            <div class="paper-item">
-                <div class="paper-authors">Longjian Huang, Lizhi Shao, Meiling Bao, Changsong Guo, Zhuhong Shao, Xiazi Huang, Mingjing Wang, <strong>Xiaoming Jiang</strong>, and Shengzhou Hu.</div>
-                <div class="paper-title"><strong>Federated learning with comparative learning-based dynamic parameter updating on glioma whole slide images.</strong></div>
-                <div class="paper-source">Engineering Applications of Artificial Intelligence, 2024, 137: 109233, 中科院一区top</div>
-            </div>
-            <div class="paper-item">
-                <div class="paper-authors">Junxian Wu, Minheng Chen, Xinyi Ke, Tianwang Xun, <strong>Xiaoming Jiang</strong>, Hongyu Zhou, Lizhi Shao, and Youyong Kong.</div>
-                <div class="paper-title"><strong>Learning heterogeneous tissues with mixture of experts for gigapixel whole slide images.</strong></div>
-                <div class="paper-source">Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR), 2025, pp. 5144-5153, CCF A类顶会</div>
-            </div>
-            <div class="paper-item">
-                <div class="paper-authors">Junxian Wu, Xinyi Ke, <strong>Xiaoming Jiang</strong>, Huanwen Wu, Youyong Kong, and Lizhi Shao.</div>
-                <div class="paper-title"><strong>Leveraging tumor heterogeneity: Heterogeneous graph representation learning for cancer survival prediction in whole slide images.</strong></div>
-                <div class="paper-source">Advances in Neural Information Processing Systems (NeurIPS), 2024, 37: 64312-64337, CCF A类顶会</div>
-            </div>
-            <div class="paper-item">
-                <div class="paper-authors">Jia Wu, Jinzhao Lin, Yu Pang, <strong>Xiaoming Jiang</strong>, Xinwei Li, Hongying Meng, Yamei Luo, Lu Yang, and Zhangyong Li.</div>
-                <div class="paper-title"><strong>Cascaded frequency-encoded multi-scale neural fields for sparse-view CT reconstruction.</strong></div>
-                <div class="paper-source">IEEE Transactions on Computational Imaging, 2025, 11: 237-250, 中科院二区</div>
-            </div>
-            <div class="paper-item">
-                <div class="paper-authors">Zhonghua Zhang, Tian Wang, Shaowei Feng, Yongxin Yang, Chunhong Lai, Xinwei Li, Lizhi Shao, and <strong>Xiaoming Jiang</strong>.</div>
-                <div class="paper-title"><strong>Sparse phase retrieval using a physics-informed neural network for Fourier ptychographic microscopy.</strong></div>
-                <div class="paper-source">Optics Letters, 2022, 47(19): 4909-4912, 中科院二区</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="patents" style="margin-bottom:45px;">
-        <h2>专利与学术奖励</h2>
-        <p style="margin-bottom:10px;">授权/公开国家发明专利十余项，部分如下：</p>
-        <div class="project-item">
-            <p>• 一种基于点云一致性关系强化的点云非刚性配准方法，CN202411627635.4</p>
-            <p>• 一种基于先验信息的肾细胞癌窦性侵犯预测方法，CN202411538601.8</p>
-            <p>• 一种基于风格迁移的自动骨龄预测方法，ZL202311240749.9</p>
-            <p>• 基于Slim-YOLOv3的口罩佩戴情况检测方法，CN202110330611.2</p>
-        </div>
-        <p style="margin-top:15px;"><strong>学术奖励：</strong>国际计算成像会议优秀海报论文奖（2021）</p>
-    </section>
-
-    <section id="students" style="margin-bottom:45px;">
-        <h2>学生去向</h2>
-        <div class="edu-item">
-            <p><strong>升学（读博）</strong>：东南大学、郑州大学</p>
-            <p><strong>就业</strong>：京东方、西南医院、航天XX、西山科技、博士康、河南联通等企事业单位</p>
-        </div>
-    </section>
-
-    <section id="contact" style="margin-bottom:45px;">
-        <h2>学术联系与招生</h2>
-        <p>欢迎报考/加入课题组，研究方向：医学人工智能、手术导航、生物医学图像处理、计算成像。</p>
-        <p style="margin-top:10px;">邮箱：jiangxm@cqupt.edu.cn</p>
-    </section>
-</div>
-
-<!-- 页脚：上线日期 + 访问统计 -->
-<div class="footer-stat">
-    <span>📅 网页上线：2026年04月02日</span> &nbsp;&nbsp;|&nbsp;&nbsp;
-    <span>👀 总访问量：<span id="busuanzi_value_site_pv"></span> 次</span> &nbsp;&nbsp;|&nbsp;&nbsp;
-    <span>🧑‍💻 访客数：<span id="busuanzi_value_site_uv"></span> 人</span>
+    <div class="footer-stat">
+        <span>📅 网页上线：2026年04月02日</span> &nbsp;|&nbsp;
+        <span>👀 总访问量：<span id="busuanzi_value_site_pv"></span> 次</span> &nbsp;|&nbsp;
+        <span>🧑‍💻 访客数：<span id="busuanzi_value_site_uv"></span> 人</span>
+    </div>
 </div>
 
 </body>
