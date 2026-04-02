@@ -13,7 +13,6 @@
             line-height:1.7;
         }
 
-        /* ========== 核心：整体两栏布局 ========== */
         .page-layout {
             display: flex;
             gap: 30px;
@@ -22,7 +21,6 @@
             padding: 0 25px;
         }
 
-        /* ========== 左侧：固定宽度的可滚动「近期进展」卡片 ========== */
         .news-sidebar {
             width: 220px;
             flex-shrink: 0;
@@ -35,8 +33,12 @@
             overflow-y: auto;
             position: sticky;
             top: 40px;
-            margin-left: -130px; /* 👈 就是这一行：向左移动30px */
+
+            /* 👇 贴左侧 + 可自定义距离（只改这里的 30px） */
+            position: relative;
+            left: calc(-25px - 30px);
         }
+
         .news-sidebar h2 {
             font-size: 18px;
             color: #1f2937;
@@ -58,7 +60,6 @@
             margin-bottom: 2px;
         }
 
-        /* ========== 右侧：主体内容 ========== */
         .main-content {
             flex: 1;
         }
@@ -175,7 +176,7 @@
                 width: 100%;
                 max-height: 300px;
                 position: static;
-                margin-left: 0;
+                left: 0; /* 手机端自动复位 */
             }
             .header-wrap{grid-template-columns:1fr;text-align:center;}
             .avatar{margin:0 auto;}
