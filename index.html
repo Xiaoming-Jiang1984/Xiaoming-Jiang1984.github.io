@@ -22,6 +22,7 @@
             padding:0 20px;
             display:flex;
             gap:30px;
+            flex-wrap:wrap;
         }
         .nav-container a{
             color:#eee;
@@ -127,6 +128,16 @@
             border-left:2px solid #ddd;
         }
 
+        /* 页脚统计样式 */
+        .footer-stat{
+            text-align:center;
+            padding:20px 0;
+            border-top:1px solid #e5e7eb;
+            font-size:14px;
+            color:#666;
+            margin-top:30px;
+        }
+
         @media(max-width:720px){
             .header-wrap{
                 grid-template-columns:1fr;
@@ -135,6 +146,8 @@
             .avatar{margin:0 auto;}
         }
     </style>
+    <!-- 不蒜子访问统计脚本 -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 <body>
 
@@ -144,6 +157,7 @@
         <a href="#about">个人简介</a>
         <a href="#education">教育背景</a>
         <a href="#work">工作经历</a>
+        <a href="#social">社会职务</a>
         <a href="#projects">科研项目</a>
         <a href="#papers">代表论文</a>
         <a href="#patents">专利与奖励</a>
@@ -160,7 +174,7 @@
             <p class="unit">重庆邮电大学 生命健康信息科学与工程学院</p>
             <div class="contact-info">
                 <p>📧 Email：jiangxm@cqupt.edu.cn</p>
-                <p>📞 电话：183****0628</p>
+                <p>📞 电话：18323350628</p>
                 <p>🔗 Google Scholar：<a href="https://scholar.google.com/citations?hl=en&user=4HYZ2ooAAAAJ" target="_blank">点击访问</a></p>
             </div>
         </div>
@@ -170,9 +184,9 @@
         <h2>研究方向</h2>
         <div class="tags">
             <span class="tag">医学人工智能</span>
-            <span class="tag">医学图像处理</span>
+            <span class="tag">生物医学图像处理</span>
             <span class="tag">计算成像</span>
-            <span class="tag">手术导航系统</span>
+            <span class="tag">手术导航与机器人</span>
         </div>
     </section>
 
@@ -204,6 +218,15 @@
         </div>
         <div class="edu-item">
             <p><strong>博士后</strong> (2014.09–2015.12) 德国乌尔姆大学</p>
+        </div>
+    </section>
+
+    <!-- 新增：社会职务 -->
+    <section id="social">
+        <h2>社会职务</h2>
+        <div class="edu-item">
+            <p>重庆市生物医学工程学会、数字医学学会理事</p>
+            <p>重庆市卫生健康信息学会医学大数据与人工智能专业委员会委员</p>
         </div>
     </section>
 
@@ -255,27 +278,27 @@
                 <div class="paper-source">中国体视学与图像分析, 2026, 30(40): 419-430, 中文核心，一级学会学报</div>
             </div>
             <div class="paper-item">
-                <div class="paper-authors">Huang Longjian, Lizhi Shao, Meiling Bao, Changsong Guo, Zhuhong Shao, Xiazi Huang, Mingjing Wang, <strong>Xiaoming Jiang</strong>, and Shengzhou Hu.</div>
+                <div class="paper-authors">Longjian Huang, Lizhi Shao, Meiling Bao, Changsong Guo, Zhuhong Shao, Xiazi Huang, Mingjing Wang, <strong>Xiaoming Jiang</strong>, and Shengzhou Hu.</div>
                 <div class="paper-title"><strong>Federated learning with comparative learning-based dynamic parameter updating on glioma whole slide images.</strong></div>
                 <div class="paper-source">Engineering Applications of Artificial Intelligence, 2024, 137: 109233, 中科院一区top</div>
             </div>
             <div class="paper-item">
-                <div class="paper-authors">Wu Junxian, Minheng Chen, Xinyi Ke, Tianwang Xun, <strong>Xiaoming Jiang</strong>, Hongyu Zhou, Lizhi Shao, and Youyong Kong.</div>
+                <div class="paper-authors">Junxian Wu, Minheng Chen, Xinyi Ke, Tianwang Xun, <strong>Xiaoming Jiang</strong>, Hongyu Zhou, Lizhi Shao, and Youyong Kong.</div>
                 <div class="paper-title"><strong>Learning heterogeneous tissues with mixture of experts for gigapixel whole slide images.</strong></div>
                 <div class="paper-source">Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR), 2025, pp. 5144-5153, CCF A类顶会</div>
             </div>
             <div class="paper-item">
-                <div class="paper-authors">Wu Junxian, Xinyi Ke, <strong>Xiaoming Jiang</strong>, Huanwen Wu, Youyong Kong, and Lizhi Shao.</div>
+                <div class="paper-authors">Junxian Wu, Xinyi Ke, <strong>Xiaoming Jiang</strong>, Huanwen Wu, Youyong Kong, and Lizhi Shao.</div>
                 <div class="paper-title"><strong>Leveraging tumor heterogeneity: Heterogeneous graph representation learning for cancer survival prediction in whole slide images.</strong></div>
                 <div class="paper-source">Advances in Neural Information Processing Systems (NeurIPS), 2024, 37: 64312-64337, CCF A类顶会</div>
             </div>
             <div class="paper-item">
-                <div class="paper-authors">Wu Jia, Jinzhao Lin, Yu Pang, <strong>Xiaoming Jiang</strong>, Xinwei Li, Hongying Meng, Yamei Luo, Lu Yang, and Zhangyong Li.</div>
+                <div class="paper-authors">Jia Wu, Jinzhao Lin, Yu Pang, <strong>Xiaoming Jiang</strong>, Xinwei Li, Hongying Meng, Yamei Luo, Lu Yang, and Zhangyong Li.</div>
                 <div class="paper-title"><strong>Cascaded frequency-encoded multi-scale neural fields for sparse-view CT reconstruction.</strong></div>
                 <div class="paper-source">IEEE Transactions on Computational Imaging, 2025, 11: 237-250, 中科院二区</div>
             </div>
             <div class="paper-item">
-                <div class="paper-authors">Zhang Zhonghua, Tian Wang, Shaowei Feng, Yongxin Yang, Chunhong Lai, Xinwei Li, Lizhi Shao, and <strong>Xiaoming Jiang</strong>.</div>
+                <div class="paper-authors">Zhonghua Zhang, Tian Wang, Shaowei Feng, Yongxin Yang, Chunhong Lai, Xinwei Li, Lizhi Shao, and <strong>Xiaoming Jiang</strong>.</div>
                 <div class="paper-title"><strong>Sparse phase retrieval using a physics-informed neural network for Fourier ptychographic microscopy.</strong></div>
                 <div class="paper-source">Optics Letters, 2022, 47(19): 4909-4912, 中科院二区</div>
             </div>
@@ -296,10 +319,17 @@
 
     <section id="contact">
         <h2>学术联系与招生</h2>
-        <p>欢迎报考/加入课题组，研究方向：医学人工智能、手术导航、医学图像处理、计算成像。</p>
-        <p style="margin-top:10px;">邮箱：jiangxm AT cqupt.edu.cn</p>
-        <p>电话：183****0628</p>
+        <p>欢迎报考/加入课题组，研究方向：医学人工智能、手术导航、生物医学图像处理、计算成像。</p>
+        <p style="margin-top:10px;">邮箱：jiangxm@cqupt.edu.cn</p>
+        <p>电话：18323350628</p>
     </section>
+</div>
+
+<!-- 页脚：上线日期 + 访问统计 -->
+<div class="footer-stat">
+    <span>📅 网页上线：2026年04月02日</span> &nbsp;&nbsp;|&nbsp;&nbsp;
+    <span>👀 总访问量：<span id="busuanzi_value_site_pv"></span> 次</span> &nbsp;&nbsp;|&nbsp;&nbsp;
+    <span>🧑‍💻 访客数：<span id="busuanzi_value_site_uv"></span> 人</span>
 </div>
 
 </body>
